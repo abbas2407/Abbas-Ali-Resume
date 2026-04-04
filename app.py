@@ -12,22 +12,35 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# Hide all default Streamlit chrome
+# Hide ALL Streamlit chrome — only the portfolio should be visible
 st.markdown("""
 <style>
-  #MainMenu, header, footer, [data-testid="stToolbar"],
-  [data-testid="stDecoration"], [data-testid="stStatusWidget"],
-  .viewerBadge_container__1QSob, .stDeployButton { display:none !important; }
-  .block-container { padding:0 !important; max-width:100% !important; }
+  #MainMenu, header, footer,
+  [data-testid="stToolbar"],
+  [data-testid="stDecoration"],
+  [data-testid="stStatusWidget"],
+  .viewerBadge_container__1QSob,
+  .stDeployButton { display: none !important; }
+
+  /* Remove all padding from Streamlit wrapper */
+  .block-container {
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
   .stApp { background: #FAF8F4; }
-  section.main > div { padding:0 !important; }
+  section.main > div { padding: 0 !important; }
+
+  /* Remove iframe border/shadow */
+  iframe { border: none !important; display: block !important; }
 </style>
 """, unsafe_allow_html=True)
 
-# Load portfolio HTML
+# Load portfolio HTML from same directory
 html_path = os.path.join(os.path.dirname(__file__), "portfolio.html")
 with open(html_path, "r", encoding="utf-8") as f:
     html_content = f.read()
 
-# Render full portfolio — tall enough for all sections to scroll
-components.html(html_content, height=6800, scrolling=True)
+# Height covers all sections without blank space
+# Hero + Marquee + About + Projects + Skills + Education + Contact + Footer
+components.html(html_content, height=5200, scrolling=True)
