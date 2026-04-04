@@ -34,7 +34,6 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
 }
 
 /* ── Custom Cursor ── */
@@ -115,9 +114,9 @@ nav.scrolled { border-color: var(--border); }
 
 /* ── HERO ── */
 #hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex; flex-direction:column; justify-content:center;
-  padding: 140px 60px 80px;
+  padding: 80px 60px 60px;
   position: relative; overflow:hidden;
 }
 .hero-noise {
@@ -177,7 +176,7 @@ nav.scrolled { border-color: var(--border); }
 .social-link:hover { color:var(--ink); background:var(--warm); border-color:var(--border); }
 .social-icon { width:16px; height:16px; }
 .hero-scroll {
-  position:absolute; bottom:40px; left:60px;
+  display:none;
   font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase;
   color:var(--muted); display:flex; align-items:center; gap:12px;
   opacity:0; animation: fadeIn 1s ease 1.4s forwards;
@@ -189,7 +188,7 @@ nav.scrolled { border-color: var(--border); }
 @keyframes expandLine { from{width:0} to{width:40px} }
 
 /* ── Section base ── */
-section { padding: 120px 60px; }
+section { padding: 72px 60px; }
 .section-label {
   font-family:'DM Mono', monospace;
   font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase;
@@ -203,7 +202,7 @@ section { padding: 120px 60px; }
   font-family:'Playfair Display', serif;
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight:900; line-height:1.05; color:var(--ink);
-  margin-bottom:60px;
+  margin-bottom:36px;
 }
 .section-heading em { font-style:italic; color:var(--gold); }
 
@@ -212,7 +211,7 @@ section { padding: 120px 60px; }
 .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
 .about-text { font-size:1.08rem; line-height:1.9; color:var(--ink2); }
 .about-text p { margin-bottom:20px; }
-.about-stats { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.about-stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .stat-card {
   background: var(--cream); border:1px solid var(--border);
   border-radius:16px; padding:28px 24px;
@@ -229,7 +228,7 @@ section { padding: 120px 60px; }
 
 /* ── Projects ── */
 #projects { background: var(--cream); }
-.projects-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:60px; }
+.projects-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:36px; }
 .view-all {
   font-size:0.82rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
   color:var(--muted); text-decoration:none; display:flex; align-items:center; gap:8px;
@@ -242,7 +241,7 @@ section { padding: 120px 60px; }
   background: var(--card); border:1px solid var(--border);
   border-radius:20px; padding:36px;
   transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
-  position:relative; overflow:hidden; cursor:none;
+  position:relative; overflow:hidden;
 }
 .project-card::before {
   content:''; position:absolute; inset:0;
@@ -327,7 +326,7 @@ section { padding: 120px 60px; }
   content:''; position:absolute; left:0; top:8px; bottom:0;
   width:1px; background:var(--border);
 }
-.edu-item { position:relative; margin-bottom:48px; }
+.edu-item { position:relative; margin-bottom:32px; }
 .edu-item::before {
   content:''; position:absolute; left:-38px; top:8px;
   width:12px; height:12px; border-radius:50%;
@@ -421,7 +420,7 @@ footer a:hover { color:var(--gold2); }
 /* ── Floating shapes ── */
 .shape {
   position:absolute; border-radius:50%; pointer-events:none;
-  opacity:0.06; animation: float 8s ease-in-out infinite;
+  opacity:0.04; animation: float 8s ease-in-out infinite; z-index:0;
 }
 .shape1 { width:400px; height:400px; background:var(--gold); top:-80px; right:-100px; animation-delay:0s; }
 .shape2 { width:200px; height:200px; background:var(--ink); bottom:100px; left:-60px; animation-delay:3s; }
@@ -489,7 +488,7 @@ footer a:hover { color:var(--gold2); }
       <p class="hero-tagline">Building intelligent systems that turn raw data into decisions — from NLP pipelines to deep learning models.</p>
       <div style="margin-top:28px; display:flex; gap:16px; flex-wrap:wrap;">
         <a href="#projects" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:100px;background:var(--ink);color:var(--cream);font-size:0.88rem;font-weight:600;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(28,26,23,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">View Work ↓</a>
-        <a href="mailto:abbas.off24@gmail.com" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:100px;border:1.5px solid var(--border);color:var(--ink);font-size:0.88rem;font-weight:600;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink)'">Get in Touch</a>
+        <a href="/cdn-cgi/l/email-protection#4b2a29292a3865242d2d797f0b2c262a222765282426" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:100px;border:1.5px solid var(--border);color:var(--ink);font-size:0.88rem;font-weight:600;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--ink)'">Get in Touch</a>
       </div>
     </div>
     <div class="hero-right">
@@ -759,14 +758,14 @@ footer a:hover { color:var(--gold2); }
   <div class="section-label reveal" style="justify-content:center;">Contact</div>
   <h2 class="contact-big reveal">Let's build something <em>intelligent</em></h2>
   <div class="contact-row reveal reveal-delay-1">
-    <a href="mailto:abbas.off24@gmail.com" class="contact-btn primary">Send Email ↗</a>
+    <a href="/cdn-cgi/l/email-protection#4322212122306d2c2525717703242e222a2f6d202c2e" class="contact-btn primary">Send Email ↗</a>
     <a href="https://linkedin.com/in/abbasalip" target="_blank" class="contact-btn secondary">LinkedIn</a>
     <a href="https://github.com/abbas2407" target="_blank" class="contact-btn secondary">GitHub</a>
   </div>
   <div class="contact-info reveal reveal-delay-2">
     <div class="contact-item">
       <div class="contact-item-label">Email</div>
-      <div class="contact-item-value">abbas.off24@gmail.com</div>
+      <div class="contact-item-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="28494a4a495b06474e4e1a1c684f45494144064b4745">[email&#160;protected]</a></div>
     </div>
     <div class="contact-item">
       <div class="contact-item-label">Phone</div>
@@ -793,7 +792,7 @@ footer a:hover { color:var(--gold2); }
   </span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Cursor
 const cursor = document.getElementById('cursor');
 const ring   = document.getElementById('cursor-ring');
@@ -818,6 +817,18 @@ window.addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled', window.scrollY>40);
 });
 
+// ── Smooth anchor scroll fix for iframe
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id = link.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
 // ── Scroll reveal
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
@@ -836,17 +847,4 @@ document.querySelectorAll('.project-card').forEach(card=>{
     card.style.transition='transform 0.1s';
   });
   card.addEventListener('mouseleave',()=>{
-    card.style.transform='';
-    card.style.transition='transform 0.4s cubic-bezier(0.16,1,0.3,1)';
-  });
-});
-
-// ── Skill tag stagger on hover
-document.querySelectorAll('.skill-tags').forEach(group=>{
-  group.querySelectorAll('.skill-tag').forEach((tag,i)=>{
-    tag.style.transitionDelay=`${i*0.04}s`;
-  });
-});
-</script>
-</body>
-</html>
+    card.style.transform
